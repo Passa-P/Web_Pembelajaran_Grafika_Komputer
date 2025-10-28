@@ -1,8 +1,6 @@
 import streamlit as st
 
 def render():
-    st.set_page_config(page_title="Materi 1 - Pengantar Grafika Komputer", page_icon="🖥️")
-
     st.title("🖥️ Materi 1: Pengantar Grafika Komputer")
     st.markdown("---")
 

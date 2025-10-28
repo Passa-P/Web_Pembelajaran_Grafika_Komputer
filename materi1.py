@@ -1,78 +1,40 @@
+# materi1.py
 import streamlit as st
+import cv2
+import numpy as np
+import os
 
-def render():
-    st.set_page_config(page_title="Materi 1 - Pengantar Grafika Komputer", page_icon="🖥️")
+def main():
+    st.header("📘 Materi 1: Pengantar Grafika Komputer (OpenCV)")
 
-    st.title("🖥️ Materi 1: Pengantar Grafika Komputer")
-    st.markdown("---")
+    current_dir = os.path.dirname(__file__)
+    img_path = os.path.join(current_dir, "foto.jpg")
+    img = cv2.imread(img_path)
 
-    # ====== Pengertian ======
-    st.subheader("Apa itu Grafika Komputer?")
-    st.write("""
-    Grafika komputer adalah cabang ilmu komputer yang berfokus pada **pembuatan, manipulasi, penyimpanan, dan representasi visual data**
-    menggunakan komputer.  
-    Dengan grafika komputer, kita dapat menghasilkan gambar, animasi, simulasi, serta visualisasi yang membantu komunikasi dan analisis data.
-    """)
+    if img is None:
+        st.error(f"Gambar 'foto.jpg' tidak ditemukan di folder: {current_dir}")
+        return
 
-    # ====== Tujuan ======
-    st.subheader("Tujuan Grafika Komputer")
-    st.markdown("""
-    - 🎨 Menampilkan informasi secara **visual dan interaktif**.  
-    - 🧠 Membantu **simulasi dan pemodelan** dalam berbagai bidang (medis, arsitektur, teknik).  
-    - 💬 Meningkatkan **interaksi antara manusia dan komputer** (Human-Computer Interaction).  
-    - 📊 Menyediakan **visualisasi data kompleks** agar lebih mudah dipahami.  
-    - 🎮 Mendukung **hiburan digital** seperti animasi, film, dan video game.
-    """)
+    # === 2. Putar 180 derajat + mirror ===
+    rotated = cv2.rotate(img, cv2.ROTATE_180)
+    mirror_img = cv2.flip(rotated, 1)
 
-    # ====== Sejarah ======
-    st.subheader("Sejarah Perkembangan Grafika Komputer")
-    st.write("""
-    Perkembangan grafika komputer dimulai sejak tahun 1950-an dan terus berkembang hingga kini.
-    
-    #### 🕰️ 1950–1960: Awal Mula
-    - Tahun 1950-an, komputer hanya mampu menampilkan teks sederhana.
-    - Tahun 1951, muncul **komputer Whirlwind** di MIT yang dapat menampilkan titik cahaya di layar CRT.
-    - Tahun 1963, **Ivan Sutherland** menciptakan *Sketchpad*, sistem grafis pertama yang memungkinkan menggambar langsung di layar dengan pena cahaya (*light pen*).
-    
-    #### 💾 1970–1980: Era Grafik Vektor dan Warna
-    - Muncul teknologi **raster graphics** yang memungkinkan tampilan berbasis piksel.
-    - Komputer pribadi seperti **Apple II** dan **IBM PC** mulai mendukung tampilan warna.
-    - Banyak algoritma grafika dasar ditemukan, seperti algoritma **Bresenham**, **DDA**, dan **Scanline**.
+    # === 3. RGB → Grayscale manual ===
+    b, g, r = cv2.split(img)
+    grayscale_manual = (0.299*r + 0.587*g + 0.114*b).astype(np.uint8)
 
-    #### 🧩 1990–2000: Revolusi 3D
-    - Teknologi grafis 3D mulai digunakan secara luas dalam film dan game.
-    - Perkembangan **OpenGL** dan **DirectX** memungkinkan pengembangan aplikasi grafis secara real-time.
-    - Film seperti *Toy Story (1995)* menjadi film animasi 3D penuh pertama di dunia.
+    # === 4. RGB → Negasi ===
+    negasi = 255 - img
 
-    #### 🚀 2000–Sekarang: Realisme dan Virtualisasi
-    - GPU semakin canggih dengan arsitektur paralel.
-    - Munculnya teknologi seperti **Ray Tracing**, **Virtual Reality (VR)**, **Augmented Reality (AR)**, dan **AI-assisted rendering**.
-    - Software modern seperti **Blender**, **Unity**, dan **Unreal Engine** menjadi standar industri.
-    """)
+    # === 5. Lebih cerah ===
+    brightness = cv2.convertScaleAbs(img, alpha=1, beta=50)
 
-    # ====== Aplikasi ======
-    st.subheader("Aplikasi Grafika Komputer dalam Kehidupan Nyata")
-    st.markdown("""
-    Grafika komputer digunakan hampir di semua bidang kehidupan modern:
+    # === 6. Lebih kontras ===
+    contrast = cv2.convertScaleAbs(img, alpha=1.5, beta=0)
 
-    | Bidang | Contoh Aplikasi | Deskripsi |
-    |--------|------------------|------------|
-    | 🎮 **Hiburan & Game** | Unity, Unreal Engine, Blender | Pembuatan animasi, film, efek visual, dan video game. |
-    | 🏗️ **Arsitektur & Desain** | AutoCAD, SketchUp, Revit | Membuat model 3D bangunan dan simulasi desain. |
-    | 🧬 **Medis & Sains** | MRI Visualization, Simulation Tools | Menampilkan data medis secara visual 3D untuk analisis. |
-    | 🚗 **Otomotif & Industri** | CAD/CAM Systems | Simulasi desain produk dan proses manufaktur. |
-    | 📊 **Data Science & Analisis** | Tableau, Power BI, Matplotlib | Menyajikan data besar menjadi grafik dan dashboard interaktif. |
-    | 🧠 **Pendidikan & Penelitian** | Simulasi 3D, e-Learning | Membantu pembelajaran interaktif dan visualisasi konsep kompleks. |
-
-    """)
-
-    # ====== Ringkasan ======
-    st.markdown("---")
-    st.subheader("🧭 Ringkasan")
-    st.write("""
-    - Grafika komputer merupakan bidang penting dalam perkembangan teknologi visual modern.  
-    - Berawal dari sistem sederhana berbasis vektor, kini berkembang menjadi **grafis 3D real-time dan AI rendering**.  
-    - Aplikasinya sangat luas, dari **film animasi, simulasi ilmiah, hingga augmented reality**.
-    """)
-
-    st.info("Lanjutkan ke **Materi 2** untuk mempelajari Representasi Data Grafis dan Transformasi 2D.")
+    # === 7. Tampilkan hasil ===
+    st.image(cv2.cvtColor(img, cv2.COLOR_BGR2RGB), caption="Gambar Asli", use_container_width=True)
+    st.image(cv2.cvtColor(mirror_img, cv2.COLOR_BGR2RGB), caption="Mirror + Rotasi 180°", use_container_width=True)
+    st.image(grayscale_manual, caption="Grayscale Manual", use_container_width=True)
+    st.image(cv2.cvtColor(negasi, cv2.COLOR_BGR2RGB), caption="Negatif Warna", use_container_width=True)
+    st.image(cv2.cvtColor(brightness, cv2.COLOR_BGR2RGB), caption="Brightness +50", use_container_width=True)

@@ -17,8 +17,6 @@ def render():
         "Model RGB (Additive)",
         "Model CMYK (Subtractive)",
         "Model HSV (Perseptual)",
-        "Simulasi Interaktif Model Warna",
-        "Model Pencahayaan (Lighting Models)",
         "Simulasi Model Phong"
     ])
 

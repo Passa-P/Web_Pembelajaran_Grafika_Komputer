@@ -4,14 +4,32 @@ import subprocess
 import os
 
 def main():
-    st.header("🐢 Materi 4: Algoritma Pengisian Poligon (Turtle Demo)")
-    st.write("""
-    Demo ini menggunakan **Python Turtle Graphics** untuk menggambar bentuk berwarna
-    sebagai contoh **pengisian poligon (area fill)**.
+    st.title("Materi 4: Algoritma Pengisian Poligon")
 
-    Karena Turtle menggunakan GUI sendiri (Tkinter), maka demo dijalankan **di luar Streamlit**.
+    st.header("Pengantar Pengisian Poligon")
+    st.write("""
+    **Algoritma Pengisian Poligon (Polygon Filling)** adalah metode dalam grafika komputer
+    untuk mewarnai area tertutup yang dibentuk oleh garis atau sisi poligon.  
+    Tujuannya adalah untuk memberikan tampilan solid pada bentuk, bukan hanya kerangkanya saja.
+
+    Beberapa teknik umum yang digunakan:
+    - **Flood Fill** → Mengisi area berdasarkan warna awal (misalnya pada Paint).
+    - **Boundary Fill** → Mengisi area sampai batas (garis tepi).
+    - **Scanline Fill** → Menggunakan baris horizontal untuk menentukan area yang akan diisi.
+
+    Contoh penggunaan:
+    - Rendering bentuk 2D di game atau simulasi.
+    - Mewarnai area tertutup dalam desain CAD.
+    - Menampilkan objek solid pada grafik vektor.
     """)
 
+    st.header("Contoh Implementasi: Menggambar Rumah dengan Turtle")
+    st.write("""
+    Pada contoh ini, kita menggunakan **Python Turtle Graphics**
+    untuk menggambar rumah berwarna yang terdiri dari dinding, atap, dan pintu.
+    """)
+
+    # --- tampilkan kode contoh
     st.code("""
 import turtle
 
@@ -48,23 +66,30 @@ def main():
 
     t.hideturtle()
     turtle.done()
-    """, language="python")
+""", language="python")
 
-    st.info("⚠️ Klik tombol di bawah untuk menjalankan demo Turtle di jendela terpisah.")
+    st.info("Klik tombol di bawah untuk menjalankan demo Turtle di jendela terpisah.")
 
-    if st.button("🎨 Jalankan Demo Turtle"):
+    # --- tombol jalankan demo turtle
+    if st.button("Jalankan Demo Turtle"):
         file_path = os.path.join(os.getcwd(), "turtle_demo.py")
 
-        # Cek kalau file belum ada, buat otomatis
         if not os.path.exists(file_path):
             with open(file_path, "w") as f:
                 f.write(turtle_house_code())
 
         subprocess.Popen(["python", file_path], shell=True)
-        st.success("🟢 Demo Turtle sedang dijalankan di jendela terpisah!")
+        st.success("Demo Turtle sedang dijalankan di jendela terpisah!")
+
+    st.header("Kesimpulan")
+    st.write("""
+    Dengan algoritma pengisian poligon, grafika komputer dapat menampilkan bentuk 2D yang tampak **solid dan realistis**.
+    Teknik ini menjadi dasar bagi rendering 3D dan efek visual modern.
+    """)
+
 
 def turtle_house_code():
-    """Isi file turtle_demo.py otomatis."""
+    """Isi otomatis untuk file turtle_demo.py"""
     return '''import turtle
 
 def draw_filled_polygon(t, points, color):
@@ -104,3 +129,7 @@ def main():
 if __name__ == "__main__":
     main()
 '''
+
+# Jalankan fungsi utama Streamlit
+if __name__ == "__main__":
+    main()

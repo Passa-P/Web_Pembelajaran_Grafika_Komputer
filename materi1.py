@@ -4,13 +4,9 @@ import numpy as np
 import os
 
 def main():
-<<<<<<< HEAD
     st.title("Materi 1: Pengantar Grafika Komputer")
     st.markdown("---")
-=======
     st.header(" Materi 1: Pengantar Grafika Komputer (OpenCV)")
->>>>>>> 8df8a07732935123879c7917702fc7297098cfbb
-
 # ===========================
 # Bagian Teori
 # ===========================

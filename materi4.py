@@ -4,6 +4,7 @@ import subprocess              # Untuk menjalankan perintah sistem (misalnya mem
 import os                      # Untuk mengatur file dan path (lokasi file)
 
 def main():
+    # Judul halaman dan deskripsi singkat
     st.header("🐢 Materi 4: Algoritma Pengisian Poligon (Turtle Demo)")
     st.write("""
     **Algoritma Pengisian Poligon (Polygon Filling)** adalah metode dalam grafika komputer
@@ -65,10 +66,12 @@ def main():
     turtle.done()
 """, language="python")
 
+    # Menampilkan catatan kepada pengguna
     st.info("⚠️ Klik tombol di bawah untuk menjalankan demo Turtle di jendela terpisah.")
 
+    # Jika tombol diklik, maka jalankan kode turtle di luar Streamlit
     if st.button("🎨 Jalankan Demo Turtle"):
-        file_path = os.path.join(os.getcwd(), "turtle_demo.py")
+        file_path = os.path.join(os.getcwd(), "turtle_demo.py")  # Lokasi file turtle_demo.py
 
         # Cek kalau file belum ada, buat otomatis
         if not os.path.exists(file_path):
@@ -77,14 +80,7 @@ def main():
 
         # Menjalankan file turtle_demo.py dengan Python secara terpisah
         subprocess.Popen(["python", file_path], shell=True)
-        st.success("Demo Turtle sedang dijalankan di jendela terpisah!")
-
-    st.header("Kesimpulan")
-    st.write("""
-    Dengan algoritma pengisian poligon, grafika komputer dapat menampilkan bentuk 2D yang tampak **solid dan realistis**.
-    Teknik ini menjadi dasar bagi rendering 3D dan efek visual modern.
-    """)
-
+        st.success("🟢 Demo Turtle sedang dijalankan di jendela terpisah!")
 
 def turtle_house_code():
     """Isi file turtle_demo.py otomatis."""

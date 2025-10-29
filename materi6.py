@@ -44,18 +44,18 @@ def shading_phong(normals, light_dir):
     return np.clip(intensity + 0.3 * specular, 0, 1)
 
 def main():
-    st.header("📘 Materi 6: Teknik Shading (Flat, Gouraud, dan Phong)")
+    st.header(" Materi 6: Teknik Shading (Flat, Gouraud, dan Phong)")
     st.write("""
     **Shading** adalah teknik untuk memberikan efek pencahayaan pada permukaan objek 3D agar terlihat lebih realistis.
     
     Di sini kita akan membandingkan tiga metode populer:
-    - 🎨 **Flat Shading** — satu warna rata per bidang (terlihat datar)
-    - 🌈 **Gouraud Shading** — warna diinterpolasi antar vertex
-    - 💡 **Phong Shading** — normal diinterpolasi, menghasilkan pencahayaan halus
+    -  **Flat Shading** — satu warna rata per bidang (terlihat datar)
+    -  **Gouraud Shading** — warna diinterpolasi antar vertex
+    -  **Phong Shading** — normal diinterpolasi, menghasilkan pencahayaan halus
     """)
 
     # === Pengaturan Cahaya ===
-    st.subheader("⚙️ Pengaturan Cahaya")
+    st.subheader(" Pengaturan Cahaya")
     lx = st.slider("Arah Cahaya X", -1.0, 1.0, 0.5)
     ly = st.slider("Arah Cahaya Y", -1.0, 1.0, 0.5)
     lz = st.slider("Arah Cahaya Z", 0.1, 1.0, 1.0)
@@ -93,7 +93,7 @@ def main():
 
     st.markdown("""
     ---
-    ### 🧠 Ringkasan:
+    ###  Ringkasan:
     | Teknik | Deskripsi | Kelebihan | Kekurangan |
     |---------|------------|------------|-------------|
     | **Flat** | Warna 1 per bidang | Cepat | Terlihat kasar |

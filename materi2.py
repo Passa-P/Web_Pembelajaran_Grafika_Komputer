@@ -3,8 +3,13 @@ import matplotlib.pyplot as plt
 import math
 
 def main():
+<<<<<<< HEAD
     st.title("Materi 2: Representasi Data Grafis & Transformasi 2D")
     st.markdown("---")
+=======
+    st.header(" Materi 2: Representasi Data Grafis & Transformasi 2D")
+    st.subheader("Demo: Bintang 5 Sudut")
+>>>>>>> 8df8a07732935123879c7917702fc7297098cfbb
 
 # ======================
 # Bagian Teori

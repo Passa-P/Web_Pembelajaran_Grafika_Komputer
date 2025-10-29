@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def main():
-    st.header("📘 Materi 5: Model Warna dan Pencahayaan")
+    st.header(" Materi 5: Model Warna dan Pencahayaan")
     st.write("""
     Pada materi ini kamu akan mempelajari:
     - Model warna **RGB, CMY, dan HSV**
@@ -14,10 +14,10 @@ def main():
     """)
 
     tab1, tab2, tab3, tab4 = st.tabs([
-        "🎨 Model Warna RGB",
-        "🔄 Konversi Warna",
-        "🌈 Interaktif CMY & HSV",
-        "💡 Simulasi Pencahayaan"
+        " Model Warna RGB",
+        " Konversi Warna",
+        " Interaktif CMY & HSV",
+        " Simulasi Pencahayaan"
     ])
 
     # === TAB 1: MODEL WARNA ===
@@ -93,7 +93,7 @@ def main():
             st.image(cv2.cvtColor(color_cmy, cv2.COLOR_BGR2RGB),
                      caption=f"CMY({c}, {m}, {y}) → RGB{tuple(rgb_from_cmy)}", use_container_width=False)
 
-            st.info("💡 CMY merupakan kebalikan dari RGB. Semakin besar nilai C, M, Y → semakin sedikit cahaya warna aslinya.")
+            st.info(" CMY merupakan kebalikan dari RGB. Semakin besar nilai C, M, Y → semakin sedikit cahaya warna aslinya.")
 
         else:  # HSV mode
             h = st.slider("Hue", 0, 179, 90)
@@ -108,7 +108,7 @@ def main():
             st.image(cv2.cvtColor(color_hsv, cv2.COLOR_BGR2RGB),
                      caption=f"HSV({h}, {s}, {v}) → RGB{tuple(rgb_from_hsv)}", use_container_width=False)
 
-            st.info("🎨 Hue mengatur rona warna, Saturation mengatur kejenuhan, dan Value mengatur kecerahan.")
+            st.info(" Hue mengatur rona warna, Saturation mengatur kejenuhan, dan Value mengatur kecerahan.")
 
     # === TAB 4: SIMULASI PENCAHAYAAN ===
     with tab4:
@@ -143,7 +143,7 @@ def main():
                  caption=f"Cahaya: {temperature}K | Intensitas: {intensity:.1f} | Ambient: {ambient:.2f}",
                  use_container_width=False)
 
-        st.info("💡 Ubah slider untuk melihat bagaimana suhu warna dan intensitas cahaya memengaruhi hasil warna.")
+        st.info(" Ubah slider untuk melihat bagaimana suhu warna dan intensitas cahaya memengaruhi hasil warna.")
 
 if __name__ == "__main__":
     main()

@@ -54,18 +54,18 @@ def generate_sphere_texture(texture_img, size=200):
 # ---------- STREAMLIT MAIN ----------
 def main():
     # Judul halaman Streamlit
-    st.header("📘 Materi 7: Teknik Texturing")
+    st.header(" Materi 7: Teknik Texturing")
     st.write("""
     **Texturing** adalah teknik memberikan gambar (tekstur) pada permukaan objek
     untuk menambah realisme. Contohnya: kulit bumi di bola dunia, bata di dinding, dsb.
     """)
 
     # Buat dua tab untuk pembelajaran: konsep dasar & demo
-    tab1, tab2 = st.tabs(["🧱 Konsep Dasar", "🌍 Demo Tekstur pada Bola"])
+    tab1, tab2 = st.tabs([" Konsep Dasar", "🌍 Demo Tekstur pada Bola"])
 
     # ---------- TAB 1: KONSEP DASAR ----------
     with tab1:
-        st.subheader("🧩 Apa itu Texturing?")
+        st.subheader(" Apa itu Texturing?")
         st.markdown("""
         - **Texturing**: proses memproyeksikan gambar (texture map) ke permukaan objek 3D.  
         - Gambar ini disebut **texture map**, dan setiap titik di permukaan memiliki koordinat **(u, v)** untuk mengambil warna dari gambar.  
@@ -95,11 +95,11 @@ def main():
             )
         else:
             # Jika tidak ada, beri peringatan
-            st.warning("⚠️ Ilustrasi tidak ditemukan. Pastikan file 'uvmap' dan 'cube' ada di folder assets.")
+            st.warning(" Ilustrasi tidak ditemukan. Pastikan file 'uvmap' dan 'cube' ada di folder assets.")
 
     # ---------- TAB 2: DEMO SPHERE ----------
     with tab2:
-        st.subheader("🌍 Demo Penerapan Tekstur pada Bola (Simulasi 2D)")
+        st.subheader(" Demo Penerapan Tekstur pada Bola (Simulasi 2D)")
 
         # Upload gambar dari pengguna
         uploaded_file = st.file_uploader(
@@ -153,7 +153,7 @@ def main():
     # Ringkasan akhir dalam bentuk tabel
     st.markdown("""
     ---
-    ### 🧠 Ringkasan:
+    ###  Ringkasan:
     | Aspek | Penjelasan |
     |------|------------|
     | **Texture Map** | Gambar 2D yang digunakan sebagai kulit objek 3D |

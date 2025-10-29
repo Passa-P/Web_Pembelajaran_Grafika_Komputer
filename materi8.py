@@ -111,14 +111,14 @@ def shade_sphere(texture_bgr, size=512, light_dir=(0.5, 0.5, 1.0),
 
 # ---------- STREAMLIT ----------
 def main():
-    st.header("🧪 Materi 8: Simulasi Bola 3D Realistis (Lighting + Shading + Texturing)")
+    st.header(" Materi 8: Simulasi Bola 3D Realistis (Lighting + Shading + Texturing)")
     st.write("""
     Demo ini menggabungkan **texturing** (UV mapping ke bola) dengan **pencahayaan Blinn–Phong** (ambient, diffuse, specular).
     Atur arah cahaya dan parameter material untuk melihat efeknya.
     """)
 
     # --- Sidebar controls ---
-    st.sidebar.subheader("⚙️ Pengaturan")
+    st.sidebar.subheader(" Pengaturan")
     size        = st.sidebar.slider("Resolusi gambar", 256, 1024, 512, step=64)
     lx          = st.sidebar.slider("Arah Cahaya X", -1.0, 1.0, 0.4, step=0.05)
     ly          = st.sidebar.slider("Arah Cahaya Y", -1.0, 1.0, 0.4, step=0.05)

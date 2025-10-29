@@ -5,7 +5,7 @@ import os                      # Untuk mengatur file dan path (lokasi file)
 
 def main():
     # Judul halaman dan deskripsi singkat
-    st.header("🐢 Materi 4: Algoritma Pengisian Poligon (Turtle Demo)")
+    st.header(" Materi 4: Algoritma Pengisian Poligon (Turtle Demo)")
     st.write("""
     Demo ini menggunakan **Python Turtle Graphics** untuk menggambar bentuk berwarna
     sebagai contoh **pengisian poligon (area fill)**.
@@ -53,10 +53,10 @@ def main():
     """, language="python")
 
     # Menampilkan catatan kepada pengguna
-    st.info("⚠️ Klik tombol di bawah untuk menjalankan demo Turtle di jendela terpisah.")
+    st.info(" Klik tombol di bawah untuk menjalankan demo Turtle di jendela terpisah.")
 
     # Jika tombol diklik, maka jalankan kode turtle di luar Streamlit
-    if st.button("🎨 Jalankan Demo Turtle"):
+    if st.button(" Jalankan Demo Turtle"):
         file_path = os.path.join(os.getcwd(), "turtle_demo.py")  # Lokasi file turtle_demo.py
 
         # Jika file belum ada, maka dibuat otomatis
@@ -66,7 +66,7 @@ def main():
 
         # Menjalankan file turtle_demo.py dengan Python secara terpisah
         subprocess.Popen(["python", file_path], shell=True)
-        st.success("🟢 Demo Turtle sedang dijalankan di jendela terpisah!")
+        st.success(" Demo Turtle sedang dijalankan di jendela terpisah!")
 
 def turtle_house_code():
     """Fungsi ini mengembalikan isi dari file turtle_demo.py sebagai teks."""

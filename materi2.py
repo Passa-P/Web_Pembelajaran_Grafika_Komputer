@@ -17,7 +17,7 @@ def generate_star_points(xc, yc, r_outer, r_inner, n=5):
     return points
 
 def main():
-    st.header("📘 Materi 2: Representasi Data Grafis & Transformasi 2D")
+    st.header(" Materi 2: Representasi Data Grafis & Transformasi 2D")
     st.subheader("Demo: Bintang 5 Sudut")
 
     r_outer = st.slider("Radius luar", 20, 100, 60)

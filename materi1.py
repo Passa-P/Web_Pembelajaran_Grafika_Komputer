@@ -5,7 +5,7 @@ import numpy as np
 import os
 
 def main():
-    st.header("📘 Materi 1: Pengantar Grafika Komputer (OpenCV)")
+    st.header(" Materi 1: Pengantar Grafika Komputer (OpenCV)")
 
     current_dir = os.path.dirname(__file__)
     img_path = os.path.join(current_dir, "foto.jpg")
